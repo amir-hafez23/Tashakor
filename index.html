@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نامه خداحافظی</title>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet" type="text/css" />
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Vazir', Tahoma, sans-serif;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:20px;}
+.envelope{width:90%;max-width:300px;height:200px;position:relative;perspective:1000px;margin-bottom:20px;touch-action: manipulation;}
+.envelope-back{width:100%;height:100%;background:#8B4513;border-radius:10px;position:absolute;z-index:1;box-shadow:0 5px 15px rgba(0,0,0,0.3);}
+.envelope-back::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:0;height:0;border-left:50% solid transparent;border-right:50% solid transparent;border-top:100px solid #654321;}
+.envelope-front{width:100%;height:100px;background:#A0522D;position:absolute;top:0;left:0;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:50% 0%;transition:transform 0.8s ease;z-index:3;box-shadow:0 3px 10px rgba(0,0,0,0.2);}
+.envelope.open .envelope-front{transform:rotateX(-180deg);}
+.letter-inside{width:85%;height:75%;background:#f9f9f9;position:absolute;top:20%;left:7.5%;border-radius:5px;opacity:0;transform:translateY(30px) scale(0.8);transition:all 0.8s ease 0.4s;z-index:2;box-shadow:0 2px 8px rgba(0,0,0,0.2);border:1px solid #ddd;display:flex;justify-content:center;align-items:center;font-size:40px;}
+.envelope.open .letter-inside{opacity:1;transform:translateY(0) scale(1);}
+.click-instruction{color:white;font-size:18px;margin:10px 0;text-align:center;animation:pulse 2s infinite;}
+@keyframes pulse{0%{opacity:1;}50%{opacity:0.6;}100%{opacity:1;}}
+.folded-card{width:90%;max-width:400px;height:auto;background:linear-gradient(45deg,#ff9a9e,#fecfef);border-radius:20px;position:relative;cursor:pointer;margin:20px 0;transform-style:preserve-3d;transition:transform 0.6s ease;box-shadow:0 10px 30px rgba(0,0,0,0.3);display:flex;justify-content:center;align-items:center;text-align:center;color:#333;font-weight:bold;padding:20px;}
+.folded-card:hover{transform:scale(1.02) rotateY(5deg);}
+.card-content{display:none;background:white;border-radius:20px;padding:20px;width:90%;max-width:800px;max-height:80vh;overflow-y:auto;box-shadow:0 20px 50px rgba(0,0,0,0.3);position:relative;}
+.text-container{line-height:2;font-size:16px;color:#333;}
+.text-chunk{opacity:0;transform:translateY(20px);transition:all 0.8s ease;margin-bottom:20px;}
+.text-chunk.visible{opacity:1;transform:translateY(0);}
+.continue-btn{background:linear-gradient(45deg,#667eea,#764ba2);color:white;border:none;padding:12px 25px;border-radius:25px;cursor:pointer;font-size:14px;margin:20px 0;font-family:'Vazir',sans-serif;}
+.continue-btn:hover{transform:translateY(-2px);box-shadow:0 5px 15px rgba(0,0,0,0.3);}
+.images-section{display:flex;flex-wrap:wrap;gap:15px;margin:20px 0;justify-content:center;}
+.image-placeholder{width:100px;height:100px;border:2px dashed #ccc;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#666;font-size:12px;text-align:center;}
+.image-placeholder img{width:100%;height:100%;border-radius:10px;object-fit:cover;}
+.footer{text-align:center;color:white;font-size:14px;margin-top:20px;}
+@media(max-width:480px){.text-container{font-size:14px;line-height:1.6;}.folded-card{height:auto;}}
+</style>
+</head>
+<body>
+
+<!-- پاکت نامه -->
+<div class="envelope" id="envelope">
+  <div class="envelope-back"></div>
+  <div class="envelope-front"></div>
+  <div class="letter-inside">✉️</div>
+</div>
+<div class="click-instruction" id="openInstruction">برای باز کردن پاکت لمس کنید</div>
+
+<!-- کارت -->
+<div class="folded-card" id="foldedCard">برای باز کردن کارت لمس کنید</div>
+
+<!-- محتوای متن کارت -->
+<div class="card-content" id="cardContent">
+<div class="text-container">
+<div class="text-chunk">به نام خداوند جان و خرد</div>
+<div class="text-chunk">مدیر گرامی و عزیز ما،</div>
+<div class="text-chunk">با قلبی پر از احترام و دلی سرشار از قدردانی، این نامه را می‌نویسیم تا از سال‌ها خدمت، مهربانی و تلاش‌های بی‌وقفه‌ی شما سپاسگزاری کنیم.</div>
+<div class="text-chunk">حضور شما در این مدرسه، نه تنها چراغ راه دانش ما بود، بلکه الگویی از صداقت، صبر و همدلی برای همه‌ی ما.</div>
+<div class="text-chunk">ما دانش‌آموزان، هر لبخند و تشویق شما، هر تذکر و راهنمایی شما، و هر گام در مسیر پیشرفت ما، را قدر می‌دانیم و همیشه در یادمان خواهد ماند.</div>
+<div class="text-chunk">شما نه تنها آموزگار و مدیر بودید، بلکه همچون پدری مهربان و رهنمایی دانا، مسیر ما را روشن کردید و دل‌های ما را با امید و انگیزه پر ساختید.</div>
+<div class="text-chunk">از شما سپاسگزاریم برای تمام روزهایی که با مهربانی و صبر، ما را هدایت کردید، برای خاطرات شیرینی که آفریدید و برای فرصتی که به ما دادید تا در سایه‌ی تلاش و رهنمودهای شما رشد کنیم.</div>
+<div class="text-chunk">کوتاهی‌ها و ناتوانی‌های ما را به بزرگواری خود ببخشید، و بدانید که یاد و خاطره‌ی شما همیشه در قلب ما زنده خواهد ماند.</div>
+<div class="text-chunk">با احترام و ارادتی بی‌پایان،<br>دانش‌آموزان مدرسه نمونه دولتی دهخدا</div>
+</div>
+
+<!-- تصاویر -->
+<div class="images-section">
+<div class="image-placeholder"></div>
+<div class="image-placeholder"></div>
+<div class="image-placeholder"></div>
+<div class="image-placeholder"></div>
+</div>
+
+<!-- دکمه ادامه -->
+<button class="continue-btn" id="continueBtn">نمایش بخش بعدی</button>
+<div class="footer">با تشکر از آقای قلندرزهی و معاونشان</div>
+
+<!-- موزیک -->
+<audio id="backgroundMusic" src="music.mp3"></audio>
+
+<script>
+const envelope = document.getElementById('envelope');
+const foldedCard = document.getElementById('foldedCard');
+const cardContent = document.getElementById('cardContent');
+const textChunks = document.querySelectorAll('.text-chunk');
+const continueBtn = document.getElementById('continueBtn');
+const music = document.getElementById('backgroundMusic');
+
+let currentChunk = 0;
+
+// باز شدن پاکت و پخش موزیک
+envelope.addEventListener('click', () => {
+  envelope.classList.toggle('open');
+  if (envelope.classList.contains('open')) {
+    music.play().catch(e => console.log('پخش خودکار ممکن است روی موبایل محدود باشد'));
+  } else {
+    music.pause();
+  }
+});
+
+// باز شدن کارت
+foldedCard.addEventListener('click', () => {
+  foldedCard.style.display = 'none';
+  cardContent.style.display = 'block';
+  showNextChunk();
+});
+
+// نمایش متن تدریجی
+function showNextChunk(){
+  if(currentChunk < textChunks.length){
+    textChunks[currentChunk].classList.add('visible');
+    currentChunk++;
+    if(currentChunk >= textChunks.length){
+      continueBtn.style.display='none';
+    }
+  }
+}
+
+// دکمه ادامه
+continueBtn.addEventListener('click', showNextChunk);
+</script>
+</body>
+</html>
